@@ -23,7 +23,7 @@ function StrainNewForm() {
   const [strain, setStrain] = useState({
     name: "",
     type: "",
-    mood: "",
+    mood: 0,
     is_avibe: false,
     image: ""
   });
@@ -40,6 +40,7 @@ function StrainNewForm() {
     event.preventDefault();
     addStrain(strain);
   };
+
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
@@ -49,26 +50,27 @@ function StrainNewForm() {
           value={strain.name}
           type="text"
           onChange={handleTextChange}
-          placeholder="Canna Tech App"
+          placeholder="Strain Name"
           required
         />
-        <label htmlFor="url">URL:</label>
+        <label htmlFor="type">Type:</label>
         <input
-          id="url"
+          id="type"
           type="text"
-          pattern="http[s]*://.+"
-          required
-          value={strain.url}
-          placeholder="http://"
+          name="type"
+          value={strain.type}
+          placeholder="Sativa, Indica, Hybrid, CBD, etc."
           onChange={handleTextChange}
         />
-        <label htmlFor="category">Category:</label>
+        <label htmlFor="mood">Mood:</label>
         <input
-          id="category"
-          type="text"
-          name="category"
-          value={strain.category}
-          placeholder="educational, inspirational, ..."
+          id="mood"
+          type="number"
+          min="1"
+          max="5"
+          name="mood"
+          value={strain.mood}
+          placeholder="1-5"
           onChange={handleTextChange}
         />
         <label htmlFor="is_avibe">Favorite:</label>
@@ -78,7 +80,6 @@ function StrainNewForm() {
           onChange={handleCheckboxChange}
           checked={strain.is_avibe}
         />
-
         <br />
         <input type="submit" />
       </form>
@@ -87,8 +88,6 @@ function StrainNewForm() {
 }
 
 export default StrainNewForm;
-
-
 
 
 

@@ -4,7 +4,7 @@ export default function NavBar() {
   return (
     <nav>
       <h1>
-        <Link to="/strain">Strains</Link>
+        <Link to="/strain">Canna Tech App</Link>
       </h1>
       <button>
         <Link to="/strains/new">New Strains</Link>

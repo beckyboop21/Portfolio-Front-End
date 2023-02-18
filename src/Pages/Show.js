@@ -1,11 +1,12 @@
 
-import BookmarkDetails from "../Components/StrainDetails";
+import StrainDetails from "../Components/StrainDetails";
+// import BookmarkDetails from "../Components/StrainDetails";
 
 function Show() {
   return (
     <div className="Show">
       <h2>Show</h2>
-      <BookmarkDetails />
+      <StrainDetails />
     </div>
   );
 }

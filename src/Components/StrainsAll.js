@@ -6,8 +6,8 @@ import Strain from "./Strain"; //this line needed?
 
 const API = process.env.REACT_APP_API_URL;
 
-function StrainAll() {
-  const [strains, setStrain] = useState([]);
+function StrainsAll() {
+  const [strain, setStrain] = useState([]);
   useEffect(() => {
     axios
       .get(`${API}/strains`)
@@ -20,12 +20,12 @@ function StrainAll() {
   return (
     <div>
       <p className="strainCards">
-        {strains.map((strain) => {
-          return <Strain key={strains.id} strain={strain} />;
+        {strain.map((strain) => {
+          return <Strain key={strain.id} strain={strain} />; 
         })}
       </p>
     </div>
   );
 }
 
-export default StrainAll;
+export default StrainsAll;

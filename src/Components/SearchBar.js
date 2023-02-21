@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  function handleSearch(event) {
+  async function handleSearch(event) {
     event.preventDefault();
-    onSearch(searchTerm);
+    const strainLookup = event.target.value;
+
+    // Make API call using Axios
+    const response = await axios.get(`https://api.example.com/search?term=${searchTerm}`);
+
+    // Sort results by name
+    const sortedResults = response.data.results.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+
+    // Call onSearch callback with sorted results
+    onSearch(sortedResults);
   }
 
   return (
     <form onSubmit={handleSearch}>
       <input
         type="text"
-        placeholder="Search strains or products"
+        placeholder="Search strains"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />

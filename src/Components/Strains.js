@@ -9,14 +9,18 @@ function Strains() {
   const [strains, setStrains] = useState([])
 
 useEffect(() => {
-  axios.get(`${API}/strains`).then((res) => {
-setStrains(res.data)
-  }).catch ((error) => console.error)
+  console.log("Use Effect Ran")
+  axios
+  .get(`${API}/strains`)
+  .then((response) => 
+setStrains(response.data))
+  .catch ((c) => console.warn("catch", c));
 },[])
 
-
+  // This will run twice first and last Use effect runs 2nd 
   return (
     <div className="Strains">
+      {console.log("I rendered first")}
       <section>
         <table>
           <thead>
@@ -24,9 +28,10 @@ setStrains(res.data)
               <th></th>
               <th>Take me there</th>
               <th>See this strain</th>
-            </tr>
+            </tr>     
           </thead>
           <tbody>
+            {/* // key is not a prop  */}
             {strains.map((strain) => {
               return <Strain key={strain.id} strain={strain} />;
             })}

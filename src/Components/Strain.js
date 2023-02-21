@@ -1,27 +1,29 @@
 
 import { Link } from "react-router-dom";
 
-function Bookmark({ bookmark }) {
+function Strain({ strain }) {
   return (
     <tr>
       <td>
-        {bookmark.is_favorite ? (
+        {strain.is_avibe ? (
           <span>⭐️</span>) : (<span>&nbsp; &nbsp; &nbsp;</span>
         )}
       </td>
       <td>
-        <a href={bookmark.url} target="_blank" rel="noreferrer">
-          {bookmark.name}
+        {/* external link , will take us to new page,(target means go to a diff page) */}
+        <a href={strain.url} target="_blank" rel="noreferrer">
+          {strain.name}
         </a>
       </td>
       <td>
-        <Link to={`/bookmarks/${bookmark.id}`}>✏️</Link>
+        {/* internal link will take us to show -routes in app.js page-show(strain/id)  */}
+        <Link to={`/strain/${strain.id}`}>✏️</Link>
       </td>
     </tr>
   );
 }
 
-export default Bookmark;
+export default Strain;
 
 
 // import { Link } from "react-router-dom";

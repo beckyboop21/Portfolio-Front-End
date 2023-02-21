@@ -12,19 +12,3 @@ function Edit() {
 
 export default Edit;
 
-
-// import EditStrainsForm from "../Components/StrainFormEdit";
-
-// function Edit() {
-//   return (
-//     <div className="edit">
-//       <div className="editStrains">
-//       <span className="editStrainsHdg">Edit This Strain</span> <br/><br/>
-
-//       <EditStrainsForm />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Edit;

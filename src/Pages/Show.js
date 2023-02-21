@@ -1,6 +1,6 @@
 
 import StrainDetails from "../Components/StrainDetails";
-// import BookmarkDetails from "../Components/StrainDetails";
+// import StrainkDetails from "../Components/StrainDetails";
 
 function Show() {
   return (

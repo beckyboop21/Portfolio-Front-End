@@ -1,14 +1,43 @@
-// function Review({ review }) {
-//     return (
-//       <div className="review">
-//         <h4>
-//           { review.title } <span>{ review.rating }</span>
-//         </h4>
-//         <h5>{ review.reviewer }</h5>
-//         <p>{ review.content }</p>
-//       </div>
-//     );
-//   }
-  
-//   export default Review;
-  
+import { useState } from "react";
+import ReviewsForm from "./ReviewsForm";
+
+function Review ({ review, handleDelete, handleSubmit }) {
+    const [viewEditForm, toggleEditForm] = useState(false)
+
+    const toggleView = () => {
+      toggleEditForm(!viewEditForm)
+    }
+
+    const { reviewer, rating, content, id } = review;
+
+  return (
+    <div className="review">
+      {viewEditForm ? (
+      <ReviewsForm 
+        commentDetails={review}
+        toggleView={toggleView}
+        handleSubmit={handleSubmit} 
+        />
+        ) : (
+
+        <div>
+          <h4>
+          {reviewer}
+          </h4>
+          <h6>
+            {rating}
+          </h6>
+          <h5>
+            {content}
+          </h5>
+          <button onClick={toggleView}>Edit Review</button>
+          <button onClick={() => handleDelete(id)}>Delete</button>
+          </div>
+
+          )}
+          </div>
+    )
+}
+
+export default Review;
+

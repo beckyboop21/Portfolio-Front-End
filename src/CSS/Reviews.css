@@ -1,0 +1,83 @@
+
+  
+  h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .review {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .review h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .review h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .review h6 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .review button {
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .review button:hover {
+    background-color: #005fa3;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  form label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  form input,
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  form button {
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #005fa3;
+  }
+  section {
+    background-image: url('https://cdn.logojoy.com/wp-content/uploads/20200420140932/Weed-brands-.jpg');
+    background-size: cover;
+    background-position: center;
+  }

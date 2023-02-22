@@ -1,41 +1,40 @@
-import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-// const API = process.env.REACT_APP_API_URL;
 
-function StrainFormEdit() {
-  const { id } = useParams();
-  const navigate = useNavigate();
+const API = process.env.REACT_APP_API_URL;
 
-
+const StrainEditForm = () => {
+  let { id } = useParams();
+  let navigate = useNavigate();
 
   const [strain, setStrain] = useState({
     name: "",
     type: "",
     mood: "",
     is_avibe: false,
-    image: ""
+    image: "",
   });
 
   const updateStrain = (updatedStrain) => {
-    axios.put(`${API}/strains/${id}`, updatedStrain)
-      .then(() => {
-        navigate(`strains/${id}`);
-      },
-      (error) => console.error(error))
-      .catch((c) => console.warn('catch', c));
+    axios
+      .put(`${API}/strains/${id}`, updatedStrain)
+      .then(
+        () => {
+          navigate(`/strains/${id}`);
+        },
+        (error) => console.error(error)
+      )
+      .catch((c) => console.warn("catch", c));
   };
 
   const handleTextChange = (event) => {
     setStrain({ ...strain, [event.target.id]: event.target.value });
   };
 
-  const handleCheckboxChange = () => {
-    setStrain({ ...strain, is_avibe: !strain.is_avibe });
-  };
-
   useEffect(() => {
-    axios.get(`${API}/strains/${id}`)
+    axios
+      .get(`${API}/strains/${id}`)
       .then((response) => setStrain(response.data))
       .catch((error) => navigate(`/not-found`));
   }, [id, navigate]);
@@ -46,33 +45,27 @@ function StrainFormEdit() {
   };
 
   return (
-    <div className="Edit">
+    <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
           id="name"
-          value={strain.name}
           type="text"
+          value={strain.name}
           onChange={handleTextChange}
-          placeholder="Strain name"
           required
         />
+
         <label htmlFor="type">Type:</label>
         <input
           id="type"
           type="text"
           value={strain.type}
-          placeholder="Flower, Edible, Concentrate"
           onChange={handleTextChange}
-          required
         />
+
         <label htmlFor="mood">Mood:</label>
-        <select
-          id="mood"
-          value={strain.mood}
-          onChange={handleTextChange}
-          required
-        >
+        <select id="mood" value={strain.mood} onChange={handleTextChange}>
           <option value="">Select a mood</option>
           <option value="Happy">Happy</option>
           <option value="Relaxed">Relaxed</option>
@@ -83,23 +76,28 @@ function StrainFormEdit() {
           <option value="Hungry">Hungry</option>
           <option value="Uplifted">Uplifted</option>
         </select>
-        <label htmlFor="is_avibe">A Vibe:</label>
-        <input
-          id="is_avibe"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={strain.is_avibe}
-        />
-        <label htmlFor="image">Image URL:</label>
+
+        <label htmlFor="image">Image:</label>
         <input
           id="image"
           type="text"
+          pattern="http[s]*://.+"
           value={strain.image}
           onChange={handleTextChange}
-          // placeholder="Image" required/>
-  
+        />
 
-export default StrainFormEdit;
+        <button className="submit" type="submit">
+          Submit
+        </button>
+      </form>
 
+      <div>
+        <Link to={`/strains/${id}`}>
+          <button className="back-button">Back</button>
+        </Link>
+      </div>
+    </div>
+  );
+};
 
-
+export default StrainEditForm;

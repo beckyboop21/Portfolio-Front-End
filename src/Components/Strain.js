@@ -1,29 +1,47 @@
 
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Strain({ strain }) {
-  return (
-    <tr>
-      <td>
-        {strain.is_avibe ? (
-          <span>⭐️</span>) : (<span>&nbsp; &nbsp; &nbsp;</span>
-        )}
-      </td>
-      <td>
-        {/* external link , will take us to new page,(target means go to a diff page) */}
-        <a href={strain.url} target="_blank" rel="noreferrer">
-          {strain.name}
-        </a>
-      </td>
-      <td>
-        {/* internal link will take us to show -routes in app.js page-show(strain/id)  */}
-        <Link to={`/strain/${strain.id}`}>✏️</Link>
-      </td>
-    </tr>
-  );
+const Strain = ({ strain }) => {
+    return (
+        <section>
+            <img src={strain.image} alt='strain' />
+
+            <Link to={`/strains/${strain.id}`}>
+                <h1>{strain.name}</h1>
+            </Link>
+        </section>
+    )
 }
 
 export default Strain;
+
+
+// import { Link } from "react-router-dom";
+
+// function Strain({ strains }) {
+//   return (
+//     <tr>
+//       <td>
+//         {strains.is_avibe ? (
+//           <span>⭐️</span>) : (<span>&nbsp; &nbsp; &nbsp;</span>
+//         )}
+//       </td>
+//       <td>
+//         {/* external link , will take us to new page,(target means go to a diff page) */}
+//         <a href={strains.url} target="_blank" rel="noreferrer">
+//           {strains.name}
+//         </a>
+//       </td>
+//       <td>
+//         {/* internal link will take us to show -routes in app.js page-show(strain/id)  */}
+//         <Link to={`/strains/${strains.id}`}>✏️</Link>
+//       </td>
+//     </tr>
+//   );
+// }
+
+// export default Strain;
 
 
 // import { Link } from "react-router-dom";

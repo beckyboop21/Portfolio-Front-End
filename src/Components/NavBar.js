@@ -1,17 +1,43 @@
-import { Link } from "react-router-dom";
 
-export default function NavBar() {
-  return (
-    <nav>
-      <h1>
-        <Link to="/strain">Canna Tech App</Link>
-      </h1>
-      <button>
-        <Link to="/strains/new">New Strains</Link>
-      </button>
-    </nav>
-  );
+import React from 'react'
+import { Link } from 'react-router-dom'
+import '../CSS/NavBar.css'
+
+const NavBar = () => {
+    return (
+        <nav>
+            <h1>
+                <Link to='/strains'>
+                    <p>All Strains</p>
+                </Link>
+            </h1>
+            <ul>
+                <li>
+                    <Link to='/strains/new'>
+                        <p>Add Strains</p>
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+    )
 }
+
+export default NavBar;
+
+// import { Link } from "react-router-dom";
+
+// export default function NavBar() {
+//   return (
+//     <nav>
+//       <h1>
+//         <Link to="/strain">Canna Tech App</Link>
+//       </h1>
+//       <button>
+//         <Link to="/strains/new">New Strains</Link>
+//       </button>
+//     </nav>
+//   );
+// }
 
 // import { Link } from "react-router-dom";
 

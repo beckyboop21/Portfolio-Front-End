@@ -9,7 +9,7 @@ function SearchBar({ onSearch }) {
     const strainLookup = event.target.value;
 
     // Make API call using Axios
-    const response = await axios.get(`https://api.example.com/search?term=${searchTerm}`);
+    const response = await axios.get(`https://www.wikileaf.com/strains/?page=3/search?term=${searchTerm}`);
 
     // Sort results by name
     const sortedResults = response.data.results.sort((a, b) => {

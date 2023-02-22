@@ -5,6 +5,12 @@ import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
 import NavBar from "./Components/NavBar";
+import FourOFour from "./Pages/FourOFour";
+
+import StrainsAll from "./Components/StrainsAll";
+import AgeModal from "./Components/AgeModal";
+import SearchBar from "./Components/SearchBar";
+
 
 function App() {
   return (
@@ -18,6 +24,7 @@ function App() {
             <Route path="/Strains/new" element={<New />} />
             <Route exact path="/Strains/:id" element={<Show />} />
             <Route path="/Strains/:id/edit" element={<Edit />} />
+            <Route path='*' element={<FourOFour />} />
           </Routes>
         </main>
       </Router>

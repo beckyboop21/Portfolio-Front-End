@@ -1,27 +1,45 @@
-import React from 'react';
-import AgeModal from '../Components/AgeModal';
-import SearchBar from '../Components/SearchBar';
-import Footer from '../Components/Footer';
 
-function Home() {
-  const [showModal, setShowModal] = React.useState(true);
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
 
-  return (
-    <div>
-      <AgeModal showModal={showModal} handleCloseModal={handleCloseModal} />
-      <h2>Welcome</h2>
-      <h3>Canna Tech app!</h3>
-      <SearchBar />
-      <Footer />
-    </div>
-  );
+const Home = () => {
+    return (
+        <div>
+            <Link to='/strains'>
+                <h1>Ready for the Good Vibes ?</h1>
+            </Link>
+        </div>
+    )
 }
 
 export default Home;
+
+
+
+// import React from 'react';
+
+
+
+// function Home() {
+//   const [showModal, setShowModal] = React.useState(true);
+
+//   const handleCloseModal = () => {
+//     setShowModal(false);
+//   };
+
+//   return (
+//     <div>
+//       <AgeModal showModal={showModal} handleCloseModal={handleCloseModal} />
+//       <h2>Welcome</h2>
+//       <h3>Canna Tech app!</h3>
+//       <SearchBar />
+    
+//     </div>
+//   );
+// }
+
+// export default Home;
 
 
 

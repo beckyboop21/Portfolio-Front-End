@@ -7,7 +7,7 @@ import Show from "./Pages/Show";
 import NavBar from "./Components/NavBar";
 import FourOFour from "./Pages/FourOFour";
 
-import StrainsAll from "./Components/StrainsAll";
+
 import AgeModal from "./Components/AgeModal";
 import SearchBar from "./Components/SearchBar";
 

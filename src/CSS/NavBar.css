@@ -1,7 +1,22 @@
 nav {
-    background-color: #333;
+  background-color: #15d779;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 30px;
+  animation: fade-in 1s ease;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
   }
-  
+  100% {
+    opacity: 1;
+  }
+}
+
   nav ul {
     list-style: none;
     margin: 0;

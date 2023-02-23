@@ -1,17 +1,22 @@
 
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
 
-const Strain = ({ strain }) => {
-    return (
-        <section>
-            <img src={strain.image} alt='strain' />
+function Strain(props) {
+  const { strain } = props;
 
-            <Link to={`/strains/${strain.id}`}>
-                <h1>{strain.name}</h1>
-            </Link>
-        </section>
-    )
+  return (
+    <div className="StrainCard">
+      <h2>{strain.name}</h2>
+      <img src={strain.image} alt={strain.name} />
+      <p>{strain.description}</p>
+      <ul>
+        <li>Type: {strain.type}</li>
+        <li>Flavors: {strain.flavors.join(", ")}</li>
+        <li>Effects: {strain.effects.join(", ")}</li>
+        <li>Rating: {strain.rating}/5</li>
+      </ul>
+    </div>
+  );
 }
 
 export default Strain;

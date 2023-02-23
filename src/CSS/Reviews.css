@@ -71,13 +71,27 @@
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
   }
   
   form button:hover {
     background-color: #005fa3;
+    color: white; /* Change text color to white */
+    border: 2px solid #005fa3; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    transition: all 0.3s ease-in-out; /* Add transition */
+    box-shadow: 2px 2px 5px #999; /* Add box shadow */
   }
+  
   section {
     background-image: url('https://cdn.logojoy.com/wp-content/uploads/20200420140932/Weed-brands-.jpg');
     background-size: cover;
     background-position: center;
+    height: 500px; /* Set a custom height for the section */
+    display: flex; /* Make the section a flex container */
+    justify-content: center; /* Center the child elements horizontally */
+    align-items: center; /* Center the child elements vertically */
+    text-align: center; /* Center the text inside the child elements */
+    color: white; /* Set the font color to white */
+    font-size: 2rem; /* Set a custom font size */
   }

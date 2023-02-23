@@ -91,9 +91,7 @@ console.log(strain); //try opening you inspector and typing the form..what warni
          onChange={handleSelectChange}
          />
 
- 
-
-                <label htmlFor="image">Image:</label> //this is okay .. i believe
+                <label htmlFor="image">Image:</label> 
                 <input
                 id="image"
                 type="text"

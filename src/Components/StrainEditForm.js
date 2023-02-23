@@ -8,13 +8,7 @@ const StrainEditForm = () => {
   let { id } = useParams();
   let navigate = useNavigate();
 
-  const [strain, setStrain] = useState({
-    name: "",
-    type: "",
-    mood: "",
-    is_avibe: false,
-    image: "",
-  });
+  const [strain, setStrain] = useState();
 
   const updateStrain = (updatedStrain) => {
     axios
@@ -44,6 +38,10 @@ const StrainEditForm = () => {
     updateStrain(strain);
   };
 
+  if (!strain) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -62,6 +60,7 @@ const StrainEditForm = () => {
           type="text"
           value={strain.type}
           onChange={handleTextChange}
+          required
         />
 
         <label htmlFor="mood">Mood:</label>
@@ -99,5 +98,4 @@ const StrainEditForm = () => {
     </div>
   );
 };
-
 export default StrainEditForm;

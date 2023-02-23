@@ -14,16 +14,16 @@ import SearchBar from "./Components/SearchBar";
 
 function App() {
   return (
-    <div className="CannaTechApp">
+    <div className="Hello World">
       <Router>
         <NavBar />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Strains" element={<Index />} />
-            <Route path="/Strains/new" element={<New />} />
-            <Route exact path="/Strains/:id" element={<Show />} />
-            <Route path="/Strains/:id/edit" element={<Edit />} />
+            <Route path="/" element={< Home />} />
+            <Route path="/strains" element={<Index />} />
+            <Route path="/strains/new" element={<New />} />
+            <Route exact path="/strains/:id" element={<Show />} />
+            <Route path="/strains/:id/edit" element={<Edit />} />
             <Route path='*' element={<FourOFour />} />
           </Routes>
         </main>

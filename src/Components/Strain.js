@@ -1,25 +1,34 @@
+// import React from "react";
+import { Link } from "react-router-dom";
 
-import React from "react";
-
-function Strain(props) {
-  const { strain } = props;
+function Strain({strain}) {
+  // const { strain } = props;
 
   return (
-    <div className="StrainCard">
-      <h2>{strain.name}</h2>
-      <img src={strain.image} alt={strain.name} />
-      <p>{strain.description}</p>
-      <ul>
-        <li>Type: {strain.type}</li>
-        <li>Flavors: {strain.flavors.join(", ")}</li>
-        <li>Effects: {strain.effects.join(", ")}</li>
-        <li>Rating: {strain.rating}/5</li>
-      </ul>
+
+    <div style={{
+      padding: 5,
+      height: 'auto',
+      textAlign:'center',
+      margin: '30px auto'
+
+    }}>
+      <Link to={`/strains/${strain.id}`}>
+      <img src={strain.image} alt="Cannabis strain" />
+      </Link>
+      <div>
+      
+
+      
+        <p>{strain.name}</p>
+        </div>
+
     </div>
   );
 }
 
 export default Strain;
+
 
 
 // import { Link } from "react-router-dom";

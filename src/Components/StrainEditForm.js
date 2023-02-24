@@ -4,22 +4,27 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-const StrainEditForm = () => {
+
+function StrainEditForm() {
   let { id } = useParams();
   let navigate = useNavigate();
 
-  const [strain, setStrain] = useState();
+  const [strain, setStrain] = useState({
+    name: "",
+    type: "",
+    mood: 0, 
+    is_avibe: false,
+    image: "",
+  });
+
 
   const updateStrain = (updatedStrain) => {
     axios
       .put(`${API}/strains/${id}`, updatedStrain)
-      .then(
-        () => {
-          navigate(`/strains/${id}`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
+      .then(() => {
+        navigate(`/strains/${id}`);
+      })
+      .catch((error) => console.error(error));
   };
 
   const handleTextChange = (event) => {
@@ -35,7 +40,7 @@ const StrainEditForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateStrain(strain);
+    updateStrain(strain, id);
   };
 
   if (!strain) {
@@ -43,7 +48,7 @@ const StrainEditForm = () => {
   }
 
   return (
-    <div>
+    <div classnameName="New">
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
@@ -51,6 +56,7 @@ const StrainEditForm = () => {
           type="text"
           value={strain.name}
           onChange={handleTextChange}
+          placeholder="Name"
           required
         />
 
@@ -62,19 +68,6 @@ const StrainEditForm = () => {
           onChange={handleTextChange}
           required
         />
-
-        <label htmlFor="mood">Mood:</label>
-        <select id="mood" value={strain.mood} onChange={handleTextChange}>
-          <option value="">Select a mood</option>
-          <option value="Happy">Happy</option>
-          <option value="Relaxed">Relaxed</option>
-          <option value="Energetic">Energetic</option>
-          <option value="Creative">Creative</option>
-          <option value="Sleepy">Sleepy</option>
-          <option value="Focused">Focused</option>
-          <option value="Hungry">Hungry</option>
-          <option value="Uplifted">Uplifted</option>
-        </select>
 
         <label htmlFor="image">Image:</label>
         <input
@@ -92,7 +85,7 @@ const StrainEditForm = () => {
 
       <div>
         <Link to={`/strains/${id}`}>
-          <button className="back-button">Back</button>
+          <button>Back</button>
         </Link>
       </div>
     </div>

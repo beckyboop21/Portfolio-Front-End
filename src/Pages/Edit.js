@@ -1,15 +1,15 @@
 
-import React from 'react'
+// import React from 'react'
 import StrainEditForm from '../Components/StrainEditForm'
-import '../CSS/EditForm.css'
+// import '../CSS/EditForm.css'
 
-const Edit = () => {
+function Edit() {
     return (
-        <div>
-            <h2> Edit Strain </h2>
+        <div className="New Edit">
+            
             <StrainEditForm />
         </div>
-    )
+    );
 }
 
 export default Edit;

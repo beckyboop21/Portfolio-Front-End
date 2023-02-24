@@ -1,10 +1,11 @@
 
 import React from 'react';
-import StrainDetails from '../Components/StrainDetails'
+import StrainDetails from '../Components/StrainDetails';
 
 const Show = () => {
     return (
-        <div>
+        <div className= "Show">
+            
             <StrainDetails />
         </div>
     )

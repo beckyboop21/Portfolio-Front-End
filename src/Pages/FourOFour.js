@@ -1,11 +1,9 @@
-import React from 'react'
-
-const FourOFour = () => {
+// import React from 'react'
+export default function FourOFour() {
     return (
         <div>
-            <h1> No Strains here, head back!</h1>
+            <h1> Error No Strains here, head back!</h1>
         </div>
-    )
+    );
 }
 
-export default FourOFour;

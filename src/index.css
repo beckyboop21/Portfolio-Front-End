@@ -3,7 +3,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #fafafa;
+
+  
+ 
 }
 
 
@@ -27,6 +29,9 @@ main {
   margin: 0;
   color: #175be2;
 }
+h1{
+  color:greenyellow
+}
 
 .card p {
   margin: 10px 0 0 0;
@@ -47,13 +52,13 @@ main {
 }
  
 a {
-  background-color: #8878ff;
+  background-color: #ffe078;
 }
 
 div{
   background-color: #1a5109;
   background-image: url('https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/07/Hazards_1296x728-Header.jpg?h=1528');
-  background-repeat: repeat;
+  /* background-repeat: repeat; */
   background-position: center center;
   background-size: cover;
 }

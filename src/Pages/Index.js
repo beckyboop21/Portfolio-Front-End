@@ -1,10 +1,10 @@
 
 import React from 'react'
-import Strains from '../Components/Strains'
+import Strains from '../Components/Strains';
 
-const Index = () => {
+function Index() {
     return (
-        <div>
+        <div className="Index">
             <Strains />
         </div>
     )

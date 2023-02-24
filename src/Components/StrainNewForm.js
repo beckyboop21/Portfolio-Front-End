@@ -1,37 +1,38 @@
-// import axios from "axios";
 
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
- 
+ const API = process.env.REACT_APP_API_URL;
 
-const StrainNewForm = () => {
-
-    const API = process.env.REACT_APP_API_URL; //<<< it was incorrect  i typed it incorrectly >? ahhh try neowwww
+function StrainNewForm(){
     let navigate = useNavigate();
 
     const [strain, setStrain] = useState({
           name: "",
           type: "",
-          mood: 0, //this might be a problem
-          is_avibe: false, //this might be a problem 
+          mood: 0, 
+          is_avibe: false,
           image: ""
-        }); //try one more time 
+        }); 
+
+        const addStrain = (newStrain) => {
+            axios
+              .post(`${API}/strains`, newStrain)
+              .then(
+                () => {
+                  navigate(`/strains`);
+                },
+                (error) => console.error(error)
+              )
+              .catch((c) => console.warn("catch", c));
+          };
             
     const handleSubmit = (event) => { 
         event.preventDefault();
-        axios
-        .post(`${API}/strains`, strain) 
-        .then(
-            () => {
-                navigate(`/strains`)
-                setStrain(" ")
-            },
-            (error) => console.error(error)
-        )
-        .catch((c) => console.warn('catch', c))
-    }
+        addStrain(strain);
+        
+    };
 
     const handleTextChange = (event) => {
         setStrain({...strain, [event.target.id]: event.target.value})
@@ -40,7 +41,7 @@ const StrainNewForm = () => {
     const handleSelectChange = (event) => {  //handles the radio change
         setStrain(event.target.value)
     }
-
+//str
 
 console.log(strain); //try opening you inspector and typing the form..what warning 
     return (
@@ -53,7 +54,7 @@ console.log(strain); //try opening you inspector and typing the form..what warni
                 name="name"
                 value={strain.name}
                 onChange={handleTextChange}
-                required
+                placeholder="Name"
                 />
 
                 <label htmlFor="type">Type:</label>
@@ -63,7 +64,7 @@ console.log(strain); //try opening you inspector and typing the form..what warni
                 name="type"
                 value={strain.type}
                 onChange={handleTextChange}
-                />
+                /> <br></br>
 
                 <label htmlFor="mood">Mood:</label>
                 <input
@@ -72,8 +73,8 @@ console.log(strain); //try opening you inspector and typing the form..what warni
                 name="mood"
                 value={strain.mood}
                 onChange={handleTextChange}
-                />
-        <label htmlFor="is_avibe">True</label>
+                /> <br></br>
+        <label htmlFor="is_avibe">Love it </label>
       <input 
       type="radio" 
       id="is_avibe" 
@@ -81,9 +82,9 @@ console.log(strain); //try opening you inspector and typing the form..what warni
       value={strain.is_avibe} 
       checked 
       onChange={handleSelectChange}
-     />
+     /> <br></br>
 
-      <label htmlFor="is_avibe">False</label>
+      <label htmlFor="is_avibe">nah I'm good </label>
       <input type="radio"
        id="is_avibe"
         name="is_avibe"
@@ -114,129 +115,6 @@ console.log(strain); //try opening you inspector and typing the form..what warni
 
 export default StrainNewForm;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/** import axios from "axios";**/}
-{/* // import { useState } from "react";
-// import { useNavigate } from "react-router-dom"; */}
-
-{/** 
-// const API = "http://localhost:3333";
-
-// function StrainNewForm() {
-
-//   let navigate = useNavigate();
-
-//   const addStrain = (newStrain) => {
-//     axios
-//     // backend route 
-//       .post(`${API}/strains`, newStrain)
-//       .then(
-//         () => {
-//           navigate(`/strains`);
-//         },
-//         (error) => console.error(error)
-//       )
-//       .catch((c) => console.warn("catch", c));
-//   };
-
-//   const [strain, setStrain] = useState({
-//     name: "",
-//     type: "",
-//     mood: 0,
-//     is_avibe: false,
-//     image: ""
-//   });
-
-//   const handleTextChange = (event) => {
-//     setStrain({ ...strain, [event.target.id]: event.target.value });
-//   };
-
-//   const handleCheckboxChange = () => {
-//     setStrain({ ...strain, is_avibe: !strain.is_avibe });
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     addStrain(strain);
-//   };
-//   // on change attribute
-//   return (
-//     <div className="New">
-//       <form onSubmit={handleSubmit}>
-//         <label htmlFor="name">Name:</label>
-//         <input
-//           id="name"
-//           value={strain.name}
-//           type="text"
-//           onChange={handleTextChange}
-//           placeholder="Strain Name"
-//           required
-//         />
-//         <label htmlFor="url">URL:</label>
-//         <input
-//           id="url"
-//           type="text"
-//           pattern="http[s]*://.+"
-//           value={strain.url}
-//           placeholder="http://"
-//           onChange={handleTextChange}
-//         />
-//         <label htmlFor="url">Mood:</label>
-//         <input
-//           id="mood"
-//           type="number"
-//           min="1"
-//           max="5"
-//           name="mood"
-//           value={strain.mood}
-//           placeholder="1-5"
-//           onChange={handleTextChange}
-//         />
-//         <label htmlFor="is_avibe">Favorite:</label>
-//         <input
-//           id="is_avibe"
-//           type="checkbox"
-//           onChange={handleCheckboxChange}
-//           checked={strain.is_avibe}
-//         />
-//         <br />
-//         <input type="submit" />
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default StrainNewForm;
-
-**/}
 
 
 

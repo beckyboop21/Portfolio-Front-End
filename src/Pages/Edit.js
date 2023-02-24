@@ -1,7 +1,7 @@
 
-// import React from 'react'
+import React from 'react'
 import StrainEditForm from '../Components/StrainEditForm'
-// import '../CSS/EditForm.css'
+import '../CSS/EditForm.css'
 
 function Edit() {
     return (

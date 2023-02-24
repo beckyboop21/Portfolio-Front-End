@@ -11,8 +11,8 @@ import Show from "./Pages/Show";
 import NavBar from "./Components/NavBar";
 import './App.css'
 // import { useState } from "react";
-// import AgeModal from "./Components/AgeModal";
-// import SearchBar from "./Components/SearchBar";
+import AgeModal from "./Components/AgeModal";
+import SearchBar from "./Components/SearchBar";
 
 function App() {
   // const [showNav, setShowNav] = useState(true)

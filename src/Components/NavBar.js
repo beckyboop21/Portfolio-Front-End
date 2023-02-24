@@ -12,6 +12,7 @@ export default function Nav() {
       </h1>
       <button>   
       <Link to="strains/new">New Strain</Link>
+      {/* <Link to="strains/new">New Strain</Link> */}
       </button>
     </nav>
   );

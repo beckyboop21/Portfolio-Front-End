@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Strain from "./Strain";
-import AgeModal from "./AgeModal";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Strain from './Strain';
 
 const API = process.env.REACT_APP_BASE_URL;
 
 function Strains() {
-    console.log(API);
+  const [loading, setLoading] = useState(true);
   const [strains, setStrains] = useState([]);
 
   useEffect(() => {
@@ -15,12 +14,18 @@ function Strains() {
       .then((res) => {
         console.log(res.data);
         setStrains(res.data);
+        setLoading(false); // set loading to false when data is fetched
       })
       .catch((error) => {
         console.error('Error fetching strains:', error);
+        setLoading(false); // set loading to false when there's an error
         // Handle the error here, such as setting an error state
       });
   }, []);
+
+  if (loading) {
+    return <div className="loader" />;
+  }
 
   return (
     <div className="Strains">
@@ -34,5 +39,3 @@ function Strains() {
 }
 
 export default Strains;
-
-

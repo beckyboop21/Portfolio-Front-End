@@ -4,7 +4,6 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-
 function StrainEditForm() {
   let { id } = useParams();
   let navigate = useNavigate();
@@ -12,11 +11,10 @@ function StrainEditForm() {
   const [strain, setStrain] = useState({
     name: "",
     type: "",
-    mood: 0, 
+    mood: 0,
     is_avibe: false,
     image: "",
-  });
-
+  })
 
   const updateStrain = (updatedStrain) => {
     axios
@@ -25,22 +23,21 @@ function StrainEditForm() {
         navigate(`/strains/${id}`);
       })
       .catch((error) => console.error(error));
-  };
+  }
 
   const handleTextChange = (event) => {
     setStrain({ ...strain, [event.target.id]: event.target.value });
-  };
+  }
 
   useEffect(() => {
-    axios
-      .get(`${API}/strains/${id}`)
+    axios.get(`${API}/strains/${id}`)
       .then((response) => setStrain(response.data))
-      .catch((error) => navigate(`/not-found`));
-  }, [id, navigate]);
+      .catch(() => navigate(`/not-found`));
+  }, [id, navigate])
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateStrain(strain, id);
+    updateStrain(strain);
   };
 
   if (!strain) {
@@ -48,7 +45,7 @@ function StrainEditForm() {
   }
 
   return (
-    <div classnameName="New">
+    <div className="Form">
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
@@ -56,7 +53,6 @@ function StrainEditForm() {
           type="text"
           value={strain.name}
           onChange={handleTextChange}
-          placeholder="Name"
           required
         />
 
@@ -85,10 +81,11 @@ function StrainEditForm() {
 
       <div>
         <Link to={`/strains/${id}`}>
-          <button>Back</button>
+          <button className="back-button">Back</button>
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
+
 export default StrainEditForm;

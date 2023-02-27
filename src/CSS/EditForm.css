@@ -16,14 +16,14 @@
   
   input[type="text"],
   select {
-    width: 100%;
+    width: 90%;
     padding: 1rem;
     margin: 0.5rem 0;
     border: none;
     border-radius: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     background-color: #f4f4f4;
-    color: #333;
+    color: #0c0303;
   }
   
   button {
@@ -57,5 +57,22 @@
     color: #c44d58;
     font-size: 1.2rem;
     margin-top: 1rem;
+  }
+  .delete-button {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  .delete-button:active {
+    background-color: #bd2130;
   }
   

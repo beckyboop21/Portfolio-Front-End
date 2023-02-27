@@ -53,25 +53,25 @@ function StrainDetails() {
                     <p>type: {strain.type}</p>
                     <p>mood: {strain.mood}</p>
                     <p>vibe: {strain.is_avibe}</p>
-                    <div classname="buttons">
-                        <>
-                    <link to={`/strains`}>
-                        <button>Back</button>
-                        </link>
-                        </>
-                        <>
-                        <link to={`/strains/${strain.id}/edit`}>
-                            <button>Edit</button>
-                            </link>
-                        </>
-                        <>
-                        <button onClick={handleDelete}>Delete</button>
-                        </>
+                    <div className="buttons">
+                    <>
+                    <Link to={`/strains`}>
+                    <button>Back</button>
+                    </Link>
+                    </>
+                    <>
+                    <Link to={`/strains/${strain.id}/edit`}>
+                    <button>Edit</button>
+                                </Link>
+                    </>
+                    <>
+                    <button onClick={handleDelete}>Delete</button>
+                    </>
+                     </div>
+                    </div>
                         </div>
-                        </div>
-                        </div>
-    )
-                }
+                    )
+                 }
 
                 export default StrainDetails; 
               
